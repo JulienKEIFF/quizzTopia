@@ -66,6 +66,7 @@ h1{
 }
 #choice{
   position: relative;
+  top: 5vh;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -73,17 +74,45 @@ h1{
   background: rgb(255, 255, 255);
   border-radius: 3vh;
   width: 60%;
-  height: 20vh;
+  height: 50vh;
+  h2{
+    color: #d45454;
+    font-family: "Dimbo";
+    font-size: 5vw;
+    margin-top: 1%;
+  }
   .card{
     position: relative;
     left: 50%;
     top: 50%;
     display: flex;
     flex-flow: column;
-    align-items: center;
     width: 90%;
     height: 90%;
     transform: translate(-50%, -50%);
+  }
+  #form-room{
+    input{
+      width: 100%;
+      height: 50%;
+      text-align: center;
+      margin-bottom: 5%;
+      font-size: 2vw;
+    }
+    button{
+      margin-top: 5%;
+      height: 75%;
+      width: 20%;
+      font-family: "Dimbo";
+      font-size: 2vw;
+      background: #06D6A0;
+      border: none;
+      transition-duration: 0.5s;
+      &:focus{
+        transition-duration: 0.5s;
+        background: #EF476F;
+      }
+    }
   }
 }
 #username{
@@ -91,6 +120,16 @@ h1{
   left: 50%;
   transform: translateX(-50%);
   top: 20vw;
+  width: 50vw;
+  height: 3vw;
+  input{
+    text-align: center;
+    font-size: 2vw;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.74);
+    border: none;
+  }
 }
 
 #bg{
