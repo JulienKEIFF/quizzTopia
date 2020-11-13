@@ -1,6 +1,6 @@
 # quizzTopia
 
-## Project setup
+## Project setup (Front)
 ```
 npm install
 ```
@@ -22,3 +22,20 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+***
+
+## Project setup (Server)
+```
+npm install
+```
+
+### Run in prod mode with no hot-reload
+```
+node index.js
+```
+
+### Run in develop mode with hot-reload
+```
+nodemon index.js
+```
