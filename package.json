@@ -9,6 +9,7 @@
     "postinstall": "cd server && npm i && cd ../front && npm i",
     "serve": "stack-monitor ./stack.js",
     "server": "cd server && nodemon .",
+    "build": "cd front && npm run build",
     "front": "cd front &&  npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
