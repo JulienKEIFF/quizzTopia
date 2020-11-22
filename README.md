@@ -14,3 +14,10 @@ npm run serve
 ```
 npm run build
 ```
+Front build into ```server/public``` folder
+
+## Build docker
+```
+docker build -t quizztopia .
+```
+then run with 
