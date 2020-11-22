@@ -13,10 +13,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import url(./assets/css/reset.css);
 @font-face{
   font-family: "Dimbo";
   src: url('./assets/font/Dimbo Regular.ttf') format("TrueType");
+}
+body {
+  margin: 0;
 }
 #app {
   margin: 0;
@@ -27,5 +31,29 @@ export default {
   text-align: center;
   color: #2c3e50;
   user-select: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+input{
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: left;
+  margin: 20px 0;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+}
+button{
+  font-family: "Dimbo";
+  font-size: 1.2rem;
+  background: #06D6A0;
+  border: none;
+  transition-duration: 0.3s;
+  outline: none;
+  margin: 2px;
+  border-radius: 4px;
 }
 </style>

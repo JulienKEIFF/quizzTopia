@@ -1,50 +1,53 @@
 <template>
   <div id="main">
-    <h1>Room "{{ roomId }}"</h1>
-
+    <h1>ROOM "{{ room.id }}"</h1>
     <div id="content"></div>
-
     <div id="userlist">
       <h2>Joueur dans le salon</h2>
-      <h2>{{ userlist.length }}/10</h2>
+      <h2>{{ room.users.length }}/10</h2>
       <ul>
-        <li v-for="user in userlist" v-bind:key="user.username">{{ user.username }} <div class="score">{{user.score || 0}}</div> </li>
+        <li v-for="user in room.users" v-bind:key="user.username">{{ user.username }} <div class="score">{{user.score || 0}}</div> </li>
       </ul>
     </div>
 
-    <button id="button-launch" v-if="isAdmin && !launched" v-on:click="launchGame">Lancer la partie</button>
+    <button id="button-launch" v-if="isAdmin && !room.launched" v-on:click="launchGame">Lancer la partie</button>
   </div>
 </template>
 
 <script>
-
+import Api from '../services/API'
+import Socket from '../services/Socket';
 export default {
-  name: "Romm",
-  data: () => ({
-    roomId: "",
-    userlist: [],
-    isAdmin: true,
-    launched: false
-  }),
-  methods: {
-    launchGame(){
-      if(this.isAdmin){
-        this.launched = true;
-        console.log(this.launched)
+  name: "Room",
+  data() {
+    return  {
+      isAdmin: true,
+      username: localStorage.getItem('username'),
+      room: {
+        id: '',
+        users: [],
+        quizz: {
+          question: '',
+          choices: []
+        }
       }
     }
   },
-  mounted() {
-    this.roomId = this.$route.params.room;
-    this.$socket.client.emit("updateUser", this.roomId);
-    this.$socket.client.on("userList", (data) => {
-      this.userlist = [];
-      this.userlist = data;
-    });
-    this.$socket.client.on("error", (data)=>{
-      alert(data);
-    })
+  async mounted() {
+    if(!this.username) this.goToHome()
+    this.room.id = this.$route.params.room;
+    this.room = await Api.getRoom(this.room.id)
+      .catch(() => this.goToHome())
+    Socket.socket.emit('connectRoom', this.username, this.room.id)
   },
+  methods: {
+    goToHome() {
+      this.$router.push({name: 'home'})
+    },
+    launchGame() {
+      
+    }
+  }
 };
 </script>
 
@@ -61,7 +64,6 @@ export default {
   h1{
     margin-top: 2vw;
     color: #EF476F;
-    text-transform:  uppercase;
     font-size: 5vw;
     font-family: "Dimbo";
     text-shadow: rgba(0, 0, 0, 0.287) 5px 5px 5px;

@@ -9,7 +9,7 @@ const stack = [
     spawnOptions: {
       cwd:  __dirname,
       env: Object.assign({
-        PORT: '4215',
+        PORT: '5000',
         mongoDbURL:`mongodb://root:123456@localhost:27017/${BASE}?authSource=admin`
       }, process.env)
     }
@@ -22,7 +22,7 @@ const stack = [
       cwd: __dirname,
       env: Object.assign({
         VUE_APP_SERVER_URL: 'http://localhost',
-        VUE_APP_SERVER_PORT: 4215,
+        VUE_APP_SERVER_PORT: 5000,
         VUE_APP_VERSION: 'v0.0.0'
       }, process.env)
     }
