@@ -1,41 +1,16 @@
 # quizzTopia
 
-## Project setup (Front)
+## Project setup
 ```
-npm install
+npm i
 ```
 
-### Compiles and hot-reloads for development
+## Launch dev
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## Build
 ```
 npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-***
-
-## Project setup (Server)
-```
-npm install
-```
-
-### Run in prod mode with no hot-reload
-```
-node index.js
-```
-
-### Run in develop mode with hot-reload
-```
-nodemon index.js
 ```
