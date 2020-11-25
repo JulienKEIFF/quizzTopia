@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "description": "## Project setup (Front) ``` npm install ```",
   "main": "stack.js",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.3",
+    "form-data": "^3.0.0",
+    "fs-extra": "^9.0.1",
+    "mongodb": "^3.6.3"
+  },
   "devDependencies": {},
   "scripts": {
     "postinstall": "cd server && npm i && cd ../front && npm i",
     "serve": "stack-monitor ./stack.js",
+    "importQuizz": "cd scripts && node importAllQuizz.js",
+    "updateQuizz": "cd scripts && node updateQuizzUrls.js && node importAllQuizz.js ",
     "server": "cd server && nodemon .",
     "build": "cd front && npm run build",
     "front": "cd front &&  npm run dev",
